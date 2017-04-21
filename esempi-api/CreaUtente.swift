@@ -1,4 +1,4 @@
-//esempio che crea un nuovo utente con nik cio, password caca e mail d@f.t
+//esempio che crea un nuovo utente con nik prova, password testpsw e mail test@test.it.t
 import Foundation
 
 let headers = [
@@ -6,9 +6,9 @@ let headers = [
   "cache-control": "no-cache"
 ]
 
-let postData = NSMutableData(data: "user=cio".data(using: String.Encoding.utf8)!)
-postData.append("&password=cacca".data(using: String.Encoding.utf8)!)
-postData.append("&mail=d@f.t".data(using: String.Encoding.utf8)!)
+let postData = NSMutableData(data: "user=prova".data(using: String.Encoding.utf8)!)
+postData.append("&password=testpsw".data(using: String.Encoding.utf8)!)
+postData.append("&mail=test@test.it".data(using: String.Encoding.utf8)!)
 
 let request = NSMutableURLRequest(url: NSURL(string: "http://nicholasgiordano.it:3005/user/register")! as URL,
                                         cachePolicy: .useProtocolCachePolicy,
