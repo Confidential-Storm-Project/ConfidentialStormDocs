@@ -4,8 +4,7 @@ import Foundation
 let headers = [
   "content-type": "prova",
   "pswd": "testpswd",
-  "cache-control": "no-cache",
-  "postman-token": "7145b800-1363-a29e-5fbd-eb8394413cbe"
+  "cache-control": "no-cache"
 ]
 
 let postData = NSMutableData(data: "user=prova".data(using: String.Encoding.utf8)!)
