@@ -3,8 +3,7 @@ import Foundation
 
 let headers = [
   "content-type": "application/x-www-form-urlencoded",
-  "cache-control": "no-cache",
-  "postman-token": "8bd801fc-7b9a-8aaa-772c-813a9df60682"
+  "cache-control": "no-cache"
 ]
 
 let postData = NSMutableData(data: "user=cio".data(using: String.Encoding.utf8)!)
