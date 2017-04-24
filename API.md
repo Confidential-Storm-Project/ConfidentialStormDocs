@@ -22,4 +22,16 @@ per accedere alle api private bisogna sempre passare nell'header della chiamata 
     Host: nicholasgiordano.it:3005
     token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhbmRyZWEiLCJleHAiOjE0OTMyODgwOTY0NzN9.sgVq4edOdfm9Ua_LhrcRSK0oj3-esbXXpIMW_NZ8rmY
 ```
+* inserire/aggiornare preferenze parcheggio-veicolo utente
 
+Con questa chiamata è possibile impostare le preferenze di parcheggio: tipologia di auto, disponibilità al parcheggio a pagamento (valore 'pagamento' da passare come true/false nel body) e disponibilità a parcheggi riservati (strisce gialle, valore 'speciale' da passare come true/false nel body ). Per questa chiamata è possibile omettere il valore pagamento e il valore speciale, che se non trasmessi vengono settati a false (utente non disposto al pagamento o al parcheggio su strisce gialle). E' sempre necessario passare nel body il campo 'tipo' che corrisponde alla tipologia di vettura. Il campo tipo può essere esclusivamente di queste tipologie: smart, utilitaria, berlina, monovolume, fuoristrada'
+```
+POST /user/preferenze HTTP/1.1
+Host: nicholasgiordano.it:3005
+token: **inserire qui token**
+Cache-Control: no-cache
+Content-Type: application/x-www-form-urlencoded
+
+tipo=smart&pagamento=true&speciale=true
+
+```
