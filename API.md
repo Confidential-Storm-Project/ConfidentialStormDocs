@@ -17,11 +17,7 @@ dell'oggetto JSON di risposta il valore 'result' che pò contenere una condizion
 ```
 * accedere agli endpoint privati:
 per accedere alle api private bisogna sempre passare nell'header della chiamata il token (precedentemente ottenuto).Attenzione, un token può scadere od essere invalidato! In caso di token non valido dobbiamo generarne uno nuovo con il metodo GET /user/token
-```
-    GET /user/test HTTP/1.1
-    Host: nicholasgiordano.it:3005
-    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhbmRyZWEiLCJleHAiOjE0OTMyODgwOTY0NzN9.sgVq4edOdfm9Ua_LhrcRSK0oj3-esbXXpIMW_NZ8rmY
-```
+
 * inserire/aggiornare preferenze parcheggio-veicolo utente
 
 Con questa chiamata è possibile impostare o aggiornare le preferenze di parcheggio di un utente: tipologia di auto, disponibilità al parcheggio a pagamento (valore 'pagamento' da passare come true/false nel body) e disponibilità a parcheggi riservati (strisce gialle, valore 'speciale' da passare come true/false nel body ). Per questa chiamata è possibile omettere il valore pagamento e il valore speciale, che se non trasmessi vengono settati a false (utente non disposto al pagamento o al parcheggio su strisce gialle). E' sempre necessario passare nel body il campo 'tipo' che corrisponde alla tipologia di vettura. Il campo tipo può essere esclusivamente di queste tipologie: smart, utilitaria, berlina, monovolume, fuoristrada'
@@ -34,4 +30,50 @@ Content-Type: application/x-www-form-urlencoded
 
 tipo=smart&pagamento=true&speciale=true
 
+```
+* inserire/aggiornare il profilo personale di un utente
+
+Con questa chiamata è possibile settare nome, cognome, sesso e privacy. Il campo privacy sarà utilizzato per mostrare o meno le informazioni personali (nome/cognome/sesso) agli altri utenti. Almeno un campo tra nome o cognome è obbligatorio, se non specificato la privacy viene settata a false. Se la privacy è settata a false le informazioni dell'utente non verranno mai mostrate a nessuno. Per essere un campo valido il sesso deve essere 'm' oppure 'f'
+```
+POST /user/profilo HTTP/1.1
+Host: nicholasgiordano.it:3005
+token: **iltokenqui**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+
+nome=andrea&cognome=lacava&sesso=m&privacy=true
+```
+* ottenere informazioni su un utente
+
+Info su username/mail/ultimo login
+```
+GET /user/login HTTP/1.1
+Host: nicholasgiordano.it:3005
+token: **iltokenqui**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+```
+Info sul profilo
+```
+GET /user/profilo HTTP/1.1
+Host: nicholasgiordano.it:3005
+token: **iltokenqui**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+```
+Info sulle preferenze
+```
+GET /user/preferenze HTTP/1.1
+Host: nicholasgiordano.it:3005
+token: **iltokenqui**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+```
+* Cancellare un utente
+```
+DELETE /user/kill HTTP/1.1
+Host: nicholasgiordano.it:3005
+token: **iltokenqui**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
 ```
