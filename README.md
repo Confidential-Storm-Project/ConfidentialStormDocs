@@ -1,3 +1,3 @@
 # docs
 
-Qui vengono depositate tutti i documenti relativi al progetto
+Qui vengono depositati tutti i documenti relativi al progetto
