@@ -77,3 +77,24 @@ token: **iltokenqui**
 Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache
 ```
+* Modificare la password di un utente
+```
+POST /user/newpassword HTTP/1.1
+Host: nicholasgiordano.it:3005
+token: **qui il token**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+
+vecchia=vecchiapsw&nuova=nuovapsw
+```
+* Registrazione utente con tutti i campi
+
+Questa chiamata registra un nuovo utente con tutte le sue preferenze e le sue info di profilo
+```
+POST /user/bigregister HTTP/1.1
+Host: nicholasgiordano.it:3005
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+
+user=test1&mail=test%40test.it&password=test&tipo=utilitaria&speciale=false&nome=nicholas&cognome=giordano&sesso=m&privacy=false&pagamento=true
+```
