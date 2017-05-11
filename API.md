@@ -1,7 +1,7 @@
 # API attualmente implementate
 Tutte le API rispondono con un oggetto JSON che contiene il risultato della chiamata. Tutte le chiamate hanno come primo parametro
-dell'oggetto JSON di risposta il valore 'result' che pò contenere una condizione booleana true o false se la chiamata ha avuto successo. La maggior parte delle chiamate sono private e richiedono un token! Fino a quando il progetto sarà in fase di sviluppo il server accetterà chiamate da ogni dispositivo, in fase di produzione però sarà necessaio passare un particolare header per ogni chiamata, proprio del tipo di client (Android, iOs o Web), per ora potete non preoccuparvene.
-## Tutte le api devono essere chiamate su HTTPS!
+dell'oggetto JSON di risposta il valore 'result' che pò contenere una condizione booleana true o false se la chiamata ha avuto successo. La maggior parte delle chiamate sono private e richiedono un token! Fino a quando il progetto sarà in fase di sviluppo il server accetterà chiamate da ogni dispositivo, in fase di produzione però sarà necessaio passare un particolare header per ogni chiamata, proprio del tipo di client (Android, iOs o Web), per ora potete non preoccuparvene. **Tutte la api sono fornite su HTTPS**
+## Api relative all'utente
 * creare nuovo utente:
 ```
     POST /api/user/register HTTP/1.1
@@ -98,4 +98,23 @@ Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache
 
 user=test1&mail=test%40test.it&password=test&tipo=utilitaria&speciale=false&nome=nicholas&cognome=giordano&sesso=m&privacy=false&pagamento=true
+```
+## Api relative al parcheggio
+- Inserimento nuovo parcheggio ex novo
+    - lat (specifica la latitudine del parcheggio) Double
+    - lon (specifica la longitudine del parcheggio) Double
+    - wait (eventuale tempo che l'utente è disposto ad attendere in minuti) Int
+    - speciale (eventuale parcheggio disabili) Boolean
+    - pagamento (eventuale parcheggio a pagamento) Boolean
+    - tipo (tipo di veicolo per il parcheggio) String
+
+In questa chiamata tutti i corpi del body sono obbligatori ad eccezzione dell'eventuale tempo di attesa che se non fornito viene impostato a zero. Con ex novo si intende un parcheggio liberato e non precedentemente ottenuto utilizando l'applicazione.
+```
+POST /api/park/nuovo HTTP/1.1
+Host: lalapark.it
+token: **qui il token**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+
+lat=9&lon=0&wait=0&speciale=true&pagamento=false&tipo=smart
 ```
