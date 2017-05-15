@@ -118,3 +118,61 @@ Cache-Control: no-cache
 
 lat=9&lon=0&wait=0&speciale=true&pagamento=false&tipo=smart
 ```
+- Ricerca di un parcheggio in base alla tipologia
+    - TIPOLOGIA (Specifica la tipologia di parcheggio che si cerca:'gratuiti', 'pagamento' e 'speciali' sono le opzioni possibili
+    - veicolo (scpeifica il veicolo per il quale si sta facendo la richiesta)
+    - lat (latitudine in cui si trova l'utente)
+    - lon (longitudine in cui si trova l'utente)
+    - raggio (distanza in metri all'interno della quale si cercano parcheggi
+    
+**Tutti i dati vanno passati nell'header per queste chiamate**
+```
+GET /api/park/TIPOLOGIA HTTP/1.1
+Host: lalapark.it
+token: *qui il token*
+veicolo: smart
+lat: 41.921289
+lon: 12.510428
+raggio: 1000
+```
+Esempio di chiamata alla ricerca di parcheggi 'speciali':
+```
+GET /api/park/speciali HTTP/1.1
+Host: lalapark.it
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwcm92YSIsImV4cCI6MTQ5NTQ1MjU1MzUwOX0.u0Rb2Ss6c8IQSlIfG5CSfimKbQz8Je9-KUDJlTzAIiw
+veicolo: smart
+lat: 41.921289
+lon: 12.510428
+raggio: 1000
+```
+Esempio di risposta affermativa:
+```
+{
+  "result": "true",
+  "parcheggi": [
+    {
+      "id": "5919912371cb0617e095bbb6",
+      "distanza": 22.109124427338447,
+      "lat": "41.921365",
+      "lon": "12.510181",
+      "veicolo": "smart",
+      "pagamento": "false",
+      "speciale": "true",
+      "attesa": 0,
+      "quando": "May 15th 2017, 1:29:39 pm",
+      "da": "prova"
+    }
+  ]
+}
+```
+La risposta contiene la distanza in linea d'aria tra l'utente e il parcheggio, la posizione geografica del parcheggio, info varie, il momento in cui il parcheggio è stato liberato e il nome dell'utente che lo ha liberato.
+
+Esempio di risposta senza disponibilità di parcheggi:
+```
+{
+  "result": "fail",
+  "status": "nessun parcheggio a pagemento o gratuito trovato"
+}
+```
+
+
