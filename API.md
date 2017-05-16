@@ -117,7 +117,9 @@ Content-Type:
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
-E' possibile vedere un esempio in swift del caricamento della foto cliccando qui
+E' possibile vedere un esempio in swift del caricamento della foto cliccando (qui)[https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.swift]
+
+E' possibile vedere un esempio in java(android con ok http) del caricamento della foto cliccando (qui)[https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.java]
 - Ottenimento foto profilo corrente (ove disponibile)
 ```
 GET /api/user/pic HTTP/1.1
