@@ -99,6 +99,41 @@ Cache-Control: no-cache
 
 user=test1&mail=test%40test.it&password=test&tipo=utilitaria&speciale=false&nome=nicholas&cognome=giordano&sesso=m&privacy=false&pagamento=true
 ```
+## Gestire foto profilo dell'utente
+Per gestire la foto profilo dell'utente esisteno due chiamate, una per settarla e una per prenderne i riferimenti. Se un utente setta una nuova foto profilo quella precedentemente impostata non sarà più disponibile. **Attenzione:** nel momento in cui si richiedono i riferimenti di una foto profilo il server restituisce l'endpoi da dove è possibile scaricare il file condificato (e senza estenzione) e l'estenzione della foto. Spetta al client scaricare il file e aggiungere l'estenzione semplicemente rinominando il file aggiungedo alla fine del nome l'estenzione. I file vengono codificati dal server e salvati senza estenzione per motivi di sicurezza.
+- Inserimento nuova foto profilo
+
+Nella campo 'foto' del body deve essere passato il file come multipart/form-data
+```
+POST /api/user/pic HTTP/1.1
+Host: lalapark.it
+token: **qui il token**
+Cache-Control: no-cache
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="foto"; filename=""
+Content-Type: 
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+```
+E' possibile vedere un esempio in swift del caricamento della foto cliccando qui
+- Ottenimento foto profilo corrente (ove disponibile)
+```
+GET /api/user/pic HTTP/1.1
+Host: lalapark.it
+token: **qui il token**
+Cache-Control: no-cache
+```
+- Esempio di risposta alla GET:
+```
+{
+  "result": true,
+  "endpoint": "/api/images/pic-profilo/5d558a6803abf70c76900afb5874583b",
+  "est": "png"
+}
+```
+
 ## Api relative al parcheggio
 - Inserimento nuovo parcheggio ex novo
     - lat (specifica la latitudine del parcheggio) Double
