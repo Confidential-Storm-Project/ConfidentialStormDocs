@@ -34,7 +34,7 @@ tipo=smart&pagamento=true&speciale=true
 ```
 * inserire/aggiornare il profilo personale di un utente
 
-Con questa chiamata è possibile settare nome, cognome, sesso e privacy. Il campo privacy sarà utilizzato per mostrare o meno le informazioni personali (nome/cognome/sesso) agli altri utenti. Almeno un campo tra nome o cognome è obbligatorio, se non specificato la privacy viene settata a false. Se la privacy è settata a false le informazioni dell'utente non verranno mai mostrate a nessuno. Per essere un campo valido il sesso deve essere 'm' oppure 'f'
+Con questa chiamata è possibile settare nome, cognome e sesso. Nessun campo è obbligatorio, vengono inseriti o aggiornati esclusivamente i dati passati all'interno del corpo del body.
 ```
 POST /api/user/profilo HTTP/1.1
 Host: lalapark.it
@@ -42,7 +42,7 @@ token: **iltokenqui**
 Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache
 
-nome=andrea&cognome=lacava&sesso=m&privacy=true
+nome=andrea&cognome=lacava&sesso=m
 ```
 * ottenere informazioni su un utente
 
