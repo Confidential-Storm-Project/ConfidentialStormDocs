@@ -54,7 +54,7 @@ token: **iltokenqui**
 Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache
 ```
-Info sul profilo
+Info sul profilo e mail
 ```
 GET /api/user/profilo HTTP/1.1
 Host: lalapark.it
