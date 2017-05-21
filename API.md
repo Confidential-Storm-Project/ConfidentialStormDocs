@@ -44,6 +44,18 @@ Cache-Control: no-cache
 
 nome=andrea&cognome=lacava&sesso=m
 ```
+* aggiornare indirizzo mail di un utente
+
+Con questa chiamata è possibile modificare la mail comunicata dall'utente in fase di registrazione
+```
+POST /api/user/email HTTP/1.1
+Host: lalapark.it
+token: **iltokenqui**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+
+email=nicholas.giordano%40live.com
+```
 * ottenere informazioni su un utente
 
 Info su username/mail/ultimo login
