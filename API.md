@@ -175,8 +175,6 @@ lat=9&lon=0&wait=0&speciale=true&pagamento=false&tipo=smart
     - raggio (distanza in metri all'interno della quale si cercano parcheggi
     
 **Tutti i dati vanno passati nell'header per queste chiamate**
-**Non vengono mostrati i parcheggi segnalati da più di 60 minuti!**
-La voce **quando** restituisce il tempo in millisecondi trascorso da quando il parcheggio è stato liberato
 ```
 GET /api/park/TIPOLOGIA HTTP/1.1
 Host: lalapark.it
@@ -210,7 +208,7 @@ Esempio di risposta affermativa:
       "pagamento": "false",
       "speciale": "true",
       "attesa": 0,
-      "quando": "3500000",
+      "quando": "May 15th 2017, 1:29:39 pm",
       "da": "prova"
     }
   ]
