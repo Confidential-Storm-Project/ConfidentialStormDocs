@@ -256,3 +256,14 @@ Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache
 ```
 Per la chiamata di conferma basta passare il token.
+##Altre API
+- Segnalare un bug
+Basta popolare il campo msg del body con il messaggio che l'utente vuole segnalare, la piattaforma da cui proviene la segnalazione viene riconosciuta in automatico. Non è possibile inviare bug fin quando uno di quelli segnalati non viene risolto.
+```
+POST /api/libs/bug HTTP/1.1
+Host: lalapark.it
+token: **qui il token**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+msg=testo_che_user_invia
+```
