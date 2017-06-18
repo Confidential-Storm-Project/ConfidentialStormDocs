@@ -112,7 +112,7 @@ Cache-Control: no-cache
 user=test1&mail=test%40test.it&password=test&tipo=utilitaria&speciale=false&nome=nicholas&cognome=giordano&sesso=m&privacy=false&pagamento=true
 ```
 ## Gestire foto profilo dell'utente
-Per gestire la foto profilo dell'utente esisteno due chiamate, una per settarla e una per prenderne i riferimenti. Se un utente setta una nuova foto profilo quella precedentemente impostata non sarà più disponibile. **Attenzione:** nel momento in cui si richiedono i riferimenti di una foto profilo il server restituisce l'endpoi da dove è possibile scaricare il file condificato (e senza estenzione) e l'estenzione della foto. Spetta al client scaricare il file e aggiungere l'estenzione semplicemente rinominando il file aggiungedo alla fine del nome l'estenzione. I file vengono codificati dal server e salvati senza estenzione per motivi di sicurezza.
+Per gestire la foto profilo dell'utente esisteno due chiamate, una per settarla e una per prenderne i riferimenti. Se un utente setta una nuova foto profilo quella precedentemente impostata non sarà più disponibile. **Attenzione:** nel momento in cui si richiedono i riferimenti di una foto profilo il server restituisce l'endpoi da dove è possibile scaricare il file condificato (e senza estensione) e l'estensione della foto. Spetta al client scaricare il file e aggiungere l'estensione semplicemente rinominando il file aggiungedo alla fine del nome l'estensione. I file vengono codificati dal server e salvati senza estensione per motivi di sicurezza.
 - Inserimento nuova foto profilo
 
 Nella campo 'foto' del body deve essere passato il file come multipart/form-data
@@ -125,7 +125,7 @@ Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0g
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW
 Content-Disposition: form-data; name="foto"; filename=""
-Content-Type: 
+Content-Type:
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
@@ -173,7 +173,7 @@ lat=9&lon=0&wait=0&speciale=true&pagamento=false&tipo=smart
     - lat (latitudine in cui si trova l'utente)
     - lon (longitudine in cui si trova l'utente)
     - raggio (distanza in metri all'interno della quale si cercano parcheggi
-    
+
 **Tutti i dati vanno passati nell'header per queste chiamate**
 **Non vengono mostrati i parcheggi segnalati da più di 60 minuti!**
 La voce **quando** restituisce il tempo in millisecondi trascorso da quando il parcheggio è stato liberato
@@ -226,6 +226,7 @@ Esempio di risposta senza disponibilità di parcheggi:
 }
 ```
 ##Application core api prenotazione parcheggio/annullamento e conferma
+
 Le seguenti api trattano la possibilità di un utente di prenotare un parcheggio (e quindi navigare verso il parcheggio), di annullare l'ultima prenotazione fatta e di segnalare il parcheggio come effettiato (l'utente che ha prenotato un parcheggio ci arriva e riesce a parcheggaircisi)
 - prenotazione parcheggio: (bisogna trasmettere l'id alfanumerico del parcheggio che si vuole prenotare)
 ```
