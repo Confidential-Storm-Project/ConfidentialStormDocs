@@ -1,3 +1,8 @@
+# User Stories Confidential Storm
+
+
+## Client side
+
 **Registrazione nuovo utente**
 
 *Come* nuovo utente
@@ -351,6 +356,7 @@
 
 *Voglio* poter cancellare gli altri admin
 
+## Admin side
 
 Le seguenti features riguardano **esclusivamente** il lato server:
 
@@ -385,6 +391,9 @@ Le seguenti features riguardano **esclusivamente** il lato server:
 *Affinchè* possa pulire dopo un beta test il database
 
 *Voglio* poter eliminare l'intero database
+
+
+## Website
 
 Queste features riguardano **esclusivamente** il sito web:
 
