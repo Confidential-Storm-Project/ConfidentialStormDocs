@@ -225,7 +225,7 @@ Esempio di risposta senza disponibilità di parcheggi:
   "status": "nessun parcheggio a pagemento o gratuito trovato"
 }
 ```
-##Application core api prenotazione parcheggio/annullamento e conferma
+## Application core api prenotazione parcheggio/annullamento e conferma
 
 Le seguenti api trattano la possibilità di un utente di prenotare un parcheggio (e quindi navigare verso il parcheggio), di annullare l'ultima prenotazione fatta e di segnalare il parcheggio come effettiato (l'utente che ha prenotato un parcheggio ci arriva e riesce a parcheggaircisi)
 - prenotazione parcheggio: (bisogna trasmettere l'id alfanumerico del parcheggio che si vuole prenotare)
@@ -250,7 +250,7 @@ Per la chiamata di annullamento non è necessario passare nulla se non il token:
 - Conferma di parcheggio:
 Questa chiamata rappresenta l'evento in cui l'utente arriva al parcheggio prenotato (verso cui si stava dirigendo) e riesce a trovarlo
 ```
-POST /api/park/conferma HTTP/1.1
+POST /api/park/completa HTTP/1.1
 Host: lalapark.it
 token: **qui il token**
 Content-Type: application/x-www-form-urlencoded
