@@ -116,6 +116,9 @@ Per gestire la foto profilo dell'utente esisteno due chiamate, una per settarla 
 - Inserimento nuova foto profilo
 
 Nella campo 'foto' del body deve essere passato il file come multipart/form-data
+
+Nota che il name del campo 'foto' corrisponde al nome del parametro passato, pertanto **non** va modificato.
+
 ```
 POST /api/user/pic HTTP/1.1
 Host: lalapark.it
@@ -129,9 +132,9 @@ Content-Type:
 
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 ```
-E' possibile vedere un esempio in swift del caricamento della foto cliccando (qui)[https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.swift]
+E' possibile vedere un esempio in swift del caricamento della foto cliccando [qui](https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.swift).
 
-E' possibile vedere un esempio in java(android con ok http) del caricamento della foto cliccando (qui)[https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.java]
+E' possibile vedere un esempio in java(android con ok http) del caricamento della foto cliccando [qui](https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.java).
 - Ottenimento foto profilo corrente (ove disponibile)
 ```
 GET /api/user/pic HTTP/1.1
