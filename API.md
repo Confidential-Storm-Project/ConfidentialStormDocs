@@ -257,7 +257,32 @@ Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache
 ```
 Per la chiamata di conferma basta passare il token.
-
+- Segnalazione parcheggio occupato all'arrivo
+```
+DELETE /api/park/fallito HTTP/1.1
+Host: lalapark.it
+token: **qui il token**
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+```
+Se questa chiamata ha successo, la prossima ricerca per l'utente che ha trovato il parcheggio già occupato sarà gratuita
+## Gestione dei punteggi
+E' ufficialmente in vigore il sistema dei punteggi che funziona nel seguente modo: agli utenti appena registrati viene dato un punteggio bonus di 50 stelle. Per gli utenti già registrati registrati prima di questa implementazione (13/07/2017) è obbligatorio effettuare log-out e log-in per continuare ad utilizzare correttamente il servizio senza errori.
+**Regolamento del punteggio:**Ogni utente che effettua una ricerca per un qualsiasi tipo di parcheggio spende 1 stella. Nel momento in cui un parcheggio viene prenotato, l'utente che lo ha liberato riceve una stella, nel momento in cui un parcheggio viene confermato (l'utente che lo ha prenotato riesce a parcheggiarsi senza trovare intralci) l'utente che lo ha liberato riceve un'ulteriore stella. Se l'utente arriva in un parcheggio e lo trova occupato già (segnalandolo tramite l'apposita api), quell'utente avrà la prossima ricerca gratuita. Agli utenti che hanno 0 stelle è impossibile effettuare le ricerche.
+- Ottenere punteggio stelle residue:
+```
+GET /api/user/star HTTP/1.1
+Host: lalapark.it
+token: **qui il token**
+Cache-Control: no-cache
+```
+- Esempio di risposta alla GET:
+```
+{
+  "result": true,
+  "star": 50
+}
+```
 ## Altre API
 - Segnalare un bug
 Basta popolare il campo msg del body con il messaggio che l'utente vuole segnalare, la piattaforma da cui proviene la segnalazione viene riconosciuta in automatico. Non è possibile inviare bug fin quando uno di quelli segnalati non viene risolto.
