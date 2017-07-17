@@ -298,3 +298,12 @@ Content-Type: application/x-www-form-urlencoded
 Cache-Control: no-cache
 msg=testo_che_user_invia
 ```
+- Recupero password
+L'utente riceverà una mail contenente un link valido 24 ore mediante il quale potrà ripristinare la propria password
+```
+POST /api/user/lostpassword HTTP/1.1
+Host: lalapark.it
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+username=_nome_utente_che_vuole_recuperare
+```
