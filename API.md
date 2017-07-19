@@ -135,7 +135,7 @@ Content-Type:
 E' possibile vedere un esempio in swift del caricamento della foto cliccando [qui](https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.swift).
 
 E' possibile vedere un esempio in java(android con ok http) del caricamento della foto cliccando [qui](https://github.com/Confidential-Storm-Project/ConfidentialStormDocs/blob/master/esempi-api/caricafoto.java).
-- Ottenimento foto profilo corrente (ove disponibile)
+- Ottenimento foto profilo corrente 
 ```
 GET /api/user/pic HTTP/1.1
 Host: lalapark.it
@@ -144,12 +144,9 @@ Cache-Control: no-cache
 ```
 - Esempio di risposta alla GET:
 ```
-{
-  "result": true,
-  "endpoint": "/api/images/pic-profilo/5d558a6803abf70c76900afb5874583b",
-  "est": "png"
-}
+Viene restituita l'immagine
 ```
+Se l'immagine non è presente o non è mai stata caricata viene restituito un avatar di default
 
 ## Api relative al parcheggio
 - Inserimento nuovo parcheggio ex novo
