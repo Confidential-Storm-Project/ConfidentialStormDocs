@@ -1,14 +1,38 @@
-OkHttpClient client = new OkHttpClient();
+  new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient client = new OkHttpClient();
 
-MediaType mediaType = MediaType.parse("multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW");
-RequestBody body = RequestBody.create(mediaType, "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"foto\"; filename=\"C:\\Users\\nicho\\Desktop\\idee.png\"\r\nContent-Type: image/png\r\n\r\n\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--");
-Request request = new Request.Builder()
-  .url("https://lalapark.it/api/user/pic")
-  .post(body)
-  .addHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW")
-  .addHeader("token", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwcm92YSIsImV4cCI6MTQ5NTUyNjQ0MTkyMX0.NYeq4xAiAo8iqDBK7LGkuE6FNCAXgsJE5Lhkw-w0N6g")
-  .addHeader("cache-control", "no-cache")
-  .addHeader("postman-token", "cfe21f73-1af0-5afb-8f89-311fc7e25b06")
-  .build();
+                    MultipartBody.Builder builder = new MultipartBody.Builder()
+                            .setType(MultipartBody.FORM);
 
-Response response = client.newCall(request).execute();
+                    MediaType mediaType = MediaType.parse("image/png");
+                    builder.addFormDataPart("foto",fileToUp.getName(),RequestBody.create(mediaType, fileToUp));
+                    RequestBody body = builder.build();
+
+                    okhttp3.Request request = new okhttp3.Request.Builder()
+                            .url(URL)
+                            .post(body)
+                            .addHeader("content-type", "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW")
+                            .addHeader("token", userToken)
+                            .addHeader("cache-control", "no-cache")
+                            .build();
+
+
+                    okhttp3.Response response = client.newCall(request).execute();
+
+
+
+                    if(DEBUG)
+                        Log.d(TAG_FRAGMENT,mediaType.toString());
+
+                    if(DEBUG)
+                        Log.d(TAG_FRAGMENT,response.body().string());
+
+                } catch (IOException | NullPointerException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
